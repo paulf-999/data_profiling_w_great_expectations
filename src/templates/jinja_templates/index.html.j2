@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+   Data Docs created by Great Expectations
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8"/>
+  <title>
+  </title>
+  <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet"/>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.css" rel="stylesheet" type="text/css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>
+   <link href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" rel="stylesheet"/>
+   <style>
+    body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}
+   </style>
+   <style>
+    /*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}
+   </style>
+   <script src="https://cdn.jsdelivr.net/npm/vega@5">
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/vega-lite@4">
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6">
+   </script>
+   <script src="https://kit.fontawesome.com/8217dffd95.js">
+   </script>
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+   </script>
+   <script crossorigin="anonymous" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+   </script>
+   <script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+   </script>
+   <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js">
+   </script>
+   <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js">
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+   </script>
+   <link href="./static/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  </link>
+ </head>
+ <body>
+  <style type="text/css">
+   div.card-footer .container {
+    padding-top: 0;
+}
+div.walkthrough-card {
+    height: 100%;
+ }
+div.modal-body {
+    height: 700px
+}
+div.image-sizer {
+    max-height: 400px;
+    width: 100%;
+    padding: 0 40px;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+.code-snippet {
+    margin: 0 40px 1em 40px;
+    padding: 1em 40px;
+}
+code.inline-code {
+    padding: 2px 5px;
+}
+img.dev-loop {
+    max-height: 250px;
+}
+.json-key {
+    color: #333333;
+    font-weight: bold;
+}
+.json-str {
+    color: darkgreen;
+}
+.json-bool {
+    color: darkorange;
+}
+.json-number {
+    color: darkblue;
+}
+  </style>
+  <div aria-hidden="true" aria-labelledby="ge-walkthrough-modal-title" class="modal fade ge-walkthrough-modal" role="dialog" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h6 class="modal-title" id="ge-walkthrough-modal-title">
+       Great Expectations Walkthrough
+      </h6>
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <div class="card walkthrough-card bg-dark text-white walkthrough-1">
+       <div class="card-header">
+        <h4>
+         How to work with Great Expectations
+        </h4>
+       </div>
+       <div class="card-body">
+        <div class="image-sizer text-center">
+         <img class="img-fluid rounded-sm mx-auto dev-loop" src="./static/images/iterative-dev-loop.png"/>
+        </div>
+        <p>
+         Welcome! Now that you have initialized your project, the best way to work with Great Expectations is in this iterative dev loop:
+        </p>
+        <ol>
+         <li>
+          Let Great Expectations create a simple first draft suite, by running
+          <code class="inline-code bg-light">
+           great_expectations suite new
+          </code>
+          .
+         </li>
+         <li>
+          View the suite here in Data Docs.
+         </li>
+         <li>
+          Edit the suite in a Jupyter notebook by running
+          <code class="inline-code bg-light">
+           great_expectations suite edit
+          </code>
+         </li>
+         <li>
+          Repeat Steps 2-3 until you are happy with your suite.
+         </li>
+         <li>
+          Commit this suite to your source control repository.
+         </li>
+        </ol>
+       </div>
+       <div class="card-footer walkthrough-links">
+        <div class="container">
+         <div class="row">
+          <div class="col-sm">
+          </div>
+          <div class="col-6 text-center text-secondary">
+           1 of 7
+           <div class="progress" style="height: 2px">
+            <div aria-valuemax="16" aria-valuemin="0" aria-valuenow="16" class="progress-bar bg-info" role="progressbar" style="width: 16%">
+            </div>
+           </div>
+          </div>
+          <div class="col-sm">
+           <a class="next-link btn btn-primary float-right" href="#" onclick="go_to_slide(2)">
+            Next
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card walkthrough-card bg-dark text-white walkthrough-2">
+       <div class="card-header">
+        <h4>
+         What are Expectations?
+        </h4>
+       </div>
+       <div class="card-body">
+        <ul class="code-snippet bg-light text-muted rounded-sm">
+         <li>
+          expect_column_to_exist
+         </li>
+         <li>
+          expect_table_row_count_to_be_between
+         </li>
+         <li>
+          expect_column_values_to_be_unique
+         </li>
+         <li>
+          expect_column_values_to_not_be_null
+         </li>
+         <li>
+          expect_column_values_to_be_between
+         </li>
+         <li>
+          expect_column_values_to_match_regex
+         </li>
+         <li>
+          expect_column_mean_to_be_between
+         </li>
+         <li>
+          expect_column_kl_divergence_to_be_less_than
+         </li>
+         <li>
+          ...
+          <a href="https://greatexpectations.io/expectations">
+           and many more
+          </a>
+         </li>
+        </ul>
+        <p>
+         An expectation is a falsifiable, verifiable statement about data.
+        </p>
+        <p>
+         Expectations provide a language to talk about data characteristics and data quality - humans to humans, humans to machines and machines to machines.
+        </p>
+        <p>
+         Expectations are both data tests and docs!
+        </p>
+       </div>
+       <div class="card-footer walkthrough-links">
+        <div class="container">
+         <div class="row">
+          <div class="col-sm">
+           <a class="next-link btn btn-secondary float-left" href="#" onclick="go_to_slide(1)">
+            Back
+           </a>
+          </div>
+          <div class="col-6 text-center text-secondary">
+           2 of 7
+           <div class="progress" style="height: 2px">
+            <div aria-valuemax="32" aria-valuemin="0" aria-valuenow="32" class="progress-bar bg-info" role="progressbar" style="width: 32%">
+            </div>
+           </div>
+          </div>
+          <div class="col-sm">
+           <a class="next-link btn btn-primary float-right" href="#" onclick="go_to_slide(3)">
+            Next
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card walkthrough-card bg-dark text-white walkthrough-3">
+       <div class="card-header">
+        <h4>
+         Expectations can be presented in a machine-friendly JSON
+        </h4>
+       </div>
+       <div class="card-body">
+        <p class="code-snippet bg-light text-muted rounded-sm">
+         {
+         <br/>
+         <span class="json-key">
+          "expectation_type"
+         </span>
+         :
+         <span class="json-str">
+          "expect_column_values_to_not_be_null",
+         </span>
+         <br/>
+         <span class="json-key">
+          "kwargs"
+         </span>
+         : {
+         <br/>
+         <span class="json-key">
+          "column"
+         </span>
+         :
+         <span class="json-str">
+          "user_id"
+         </span>
+         <br/>
+         }
+         <br/>
+         }
+         <br/>
+        </p>
+        <p>
+         A machine can test if a dataset conforms to the expectation.
+        </p>
+       </div>
+       <div class="card-footer walkthrough-links">
+        <div class="container">
+         <div class="row">
+          <div class="col-sm">
+           <a class="next-link btn btn-secondary float-left" href="#" onclick="go_to_slide(2)">
+            Back
+           </a>
+          </div>
+          <div class="col-6 text-center text-secondary">
+           3 of 7
+           <div class="progress" style="height: 2px">
+            <div aria-valuemax="50" aria-valuemin="0" aria-valuenow="50" class="progress-bar bg-info" role="progressbar" style="width: 50%">
+            </div>
+           </div>
+          </div>
+          <div class="col-sm">
+           <a class="next-link btn btn-primary float-right" href="#" onclick="go_to_slide(4)">
+            Next
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card walkthrough-card bg-dark text-white walkthrough-4">
+       <div class="card-header">
+        <h4>
+         Validation produces a validation result object
+        </h4>
+       </div>
+       <div class="card-body">
+        <p class="code-snippet bg-light text-muted rounded-sm">
+         {
+         <br/>
+         <span class="json-key">
+          "success"
+         </span>
+         :
+         <span class="json-bool">
+          false
+         </span>
+         ,
+         <br/>
+         <span class="json-key">
+          "result":
+         </span>
+         {
+         <br/>
+         <span class="json-key">
+          "element_count"
+         </span>
+         :
+         <span class="json-number">
+          253405,
+         </span>
+         <br/>
+         <span class="json-key">
+          "unexpected_count"
+         </span>
+         :
+         <span class="json-number">
+          7602,
+         </span>
+         <br/>
+         <span class="json-key">
+          "unexpected_percent"
+         </span>
+         :
+         <span class="json-number">
+          2.999
+         </span>
+         <br/>
+         },
+         <br/>
+         <span class="json-key">
+          "expectation_config"
+         </span>
+         : {
+         <br/>
+         <span class="json-key">
+          "expectation_type"
+         </span>
+         :
+         <span class="json-str">
+          "expect_column_values_to_not_be_null"
+         </span>
+         ,
+         <br/>
+         <span class="json-key">
+          "kwargs"
+         </span>
+         : {
+         <br/>
+         <span class="json-key">
+          "column"
+         </span>
+         :
+         <span class="json-str">
+          "user_id"
+         </span>
+         <br/>
+         }
+         <br/>
+         }
+         <br/>
+        </p>
+        <p>
+         Here's an example Validation Result (not from your data) in JSON format. This object has rich context about the test failure.
+        </p>
+       </div>
+       <div class="card-footer walkthrough-links">
+        <div class="container">
+         <div class="row">
+          <div class="col-sm">
+           <a class="next-link btn btn-secondary float-left" href="#" onclick="go_to_slide(3)">
+            Back
+           </a>
+          </div>
+          <div class="col-6 text-center text-secondary">
+           4 of 7
+           <div class="progress" style="height: 2px">
+            <div aria-valuemax="68" aria-valuemin="0" aria-valuenow="68" class="progress-bar bg-info" role="progressbar" style="width: 68%">
+            </div>
+           </div>
+          </div>
+          <div class="col-sm">
+           <a class="next-link btn btn-primary float-right" href="#" onclick="go_to_slide(5)">
+            Next
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card walkthrough-card bg-dark text-white walkthrough-5">
+       <div class="card-header">
+        <h4>
+         Validation results save you time.
+        </h4>
+       </div>
+       <div class="card-body">
+        <div class="image-sizer text-center">
+         <img class="img-fluid rounded-sm mx-auto" src="./static/images/validation_failed_unexpected_values.gif"/>
+        </div>
+        <p>
+         This is an example of what a single failed Expectation looks like in Data Docs. Note the failure includes unexpected values from your data. This helps you debug pipelines faster.
+        </p>
+       </div>
+       <div class="card-footer walkthrough-links">
+        <div class="container">
+         <div class="row">
+          <div class="col-sm">
+           <a class="next-link btn btn-secondary float-left" href="#" onclick="go_to_slide(4)">
+            Back
+           </a>
+          </div>
+          <div class="col-6 text-center text-secondary">
+           5 of 7
+           <div class="progress" style="height: 2px">
+            <div aria-valuemax="84" aria-valuemin="0" aria-valuenow="84" class="progress-bar bg-info" role="progressbar" style="width: 84%">
+            </div>
+           </div>
+          </div>
+          <div class="col-sm">
+           <a class="next-link btn btn-primary float-right" href="#" onclick="go_to_slide(6)">
+            Next
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card walkthrough-card bg-dark text-white walkthrough-6">
+       <div class="card-header">
+        <h4>
+         Great Expectations provides a large library of expectations.
+        </h4>
+       </div>
+       <div class="card-body">
+        <div class="image-sizer text-center">
+         <img class="img-fluid rounded-sm mx-auto" src="./static/images/glossary_scroller.gif"/>
+        </div>
+        <p>
+         <a href="https://greatexpectations.io/expectations">
+          Nearly 50 built in expectations
+         </a>
+         allow you to express how you understand your data, and you can add custom
+                  expectations if you need a new one.
+        </p>
+       </div>
+       <div class="card-footer walkthrough-links">
+        <div class="container">
+         <div class="row">
+          <div class="col-sm">
+           <a class="next-link btn btn-secondary float-left" href="#" onclick="go_to_slide(5)">
+            Back
+           </a>
+          </div>
+          <div class="col-6 text-center text-secondary">
+           6 of 7
+           <div class="progress" style="height: 2px">
+            <div aria-valuemax="84" aria-valuemin="0" aria-valuenow="84" class="progress-bar bg-info" role="progressbar" style="width: 84%">
+            </div>
+           </div>
+          </div>
+          <div class="col-sm">
+           <a class="next-link btn btn-primary float-right" href="#" onclick="go_to_slide(7)">
+            Next
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card walkthrough-card bg-dark text-white walkthrough-7">
+       <div class="card-header">
+        <h4>
+         Now explore and edit the sample suite!
+        </h4>
+       </div>
+       <div class="card-body">
+        <p>
+         This sample suite shows you a few examples of expectations.
+        </p>
+        <p>
+         This Expectation Suite may not be a complete assessment of the quality of your data. You should review and edit the Expectations based on domain knowledge.
+        </p>
+        <p>
+         When you are ready, press the
+         <strong>
+          How to Edit
+         </strong>
+         button to kick off the iterative dev loop.
+        </p>
+       </div>
+       <div class="card-footer walkthrough-links">
+        <div class="container">
+         <div class="row">
+          <div class="col-sm">
+           <a class="next-link btn btn-secondary float-left" href="#" onclick="go_to_slide(6)">
+            Back
+           </a>
+          </div>
+          <div class="col-6 text-center text-secondary">
+           7 of 7
+           <div class="progress" style="height: 2px">
+            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" class="progress-bar bg-info" role="progressbar" style="width: 100%">
+            </div>
+           </div>
+          </div>
+          <div class="col-sm">
+           <button aria-label="Close" class="btn btn-primary float-right" data-dismiss="modal" type="button">
+            <span aria-hidden="true">
+             Done
+            </span>
+           </button>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script type="text/JavaScript">
+   $(".ge-walkthrough-modal").on('hide.bs.modal', function (e) {
+    try {
+      localStorage.setItem('ge-walkthrough-modal-dismissed', 'true');
+    }
+    catch (e) {
+      console.log(e);
+    }
+    go_to_slide(1);
+  })
+  </script>
+  <script type="text/JavaScript">
+   function go_to_slide(slide_number) {
+    hide_cards();
+    $('.walkthrough-' + slide_number).show();
+  }
+  function hide_cards() {
+    $('.walkthrough-card').hide();
+  }
+  hide_cards();
+  go_to_slide(1);
+  </script>
+  <script>
+   try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+  </script>
+  <nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+   <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+     <div class="float-left navbar-brand m-0 h-100">
+      <a href="#">
+       <img alt="Great Expectations" class="NO-CACHE" src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20231012T161146.403331Z" style="width: auto; height: 50px"/>
+      </a>
+     </div>
+    </nav>
+   </div>
+  </nav>
+  <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+   <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+     <div class="mb-4">
+      <div class="col-12 p-0">
+       <p>
+        Data Docs autogenerated using
+        <a href="https://greatexpectations.io">
+         Great Expectations
+        </a>
+        .
+       </p>
+      </div>
+     </div>
+     <div class="sticky">
+      <script>
+       function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+      </script>
+      <div class="card mb-3">
+       <div class="card-header p-2">
+        <strong>
+         Actions
+        </strong>
+       </div>
+       <div class="card-body p-3">
+        <div class="mb-2">
+         <div class="d-flex justify-content-center">
+          <button class="btn btn-info" data-target=".ge-walkthrough-modal" data-toggle="modal" type="button">
+           Show Walkthrough
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+     <div class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0" id="section-1">
+      <div class="row">
+       <div class="col-12 ge-index-page-site-name-title" id="section-1-content-block-1">
+        <div class="alert alert-secondary" id="section-1-content-block-1-header">
+         <div>
+          <span>
+           <strong>
+            Data Docs
+           </strong>
+           | local_site
+          </span>
+         </div>
+        </div>
+       </div>
+       <div class="col-12 ge-index-page-tabs-container" id="section-1-content-block-2">
+        <div id="section-1-content-block-2-tabs-container">
+         <ul class="nav nav-tabs" id="section-1-content-block-2-tabs-nav" role="tablist">
+          <li class="nav-item">
+           <a aria-controls="Validation-Results" aria-selected="true" class="nav-link active" data-toggle="tab" href="#Validation-Results" id="Validation-Results-tab" role="tab">
+            Validation Results
+           </a>
+          </li>
+          <li class="nav-item">
+           <a aria-controls="Expectation-Suites" aria-selected="false" class="nav-link" data-toggle="tab" href="#Expectation-Suites" id="Expectation-Suites-tab" role="tab">
+            Expectation Suites
+           </a>
+          </li>
+         </ul>
+         <div class="tab-content" id="section-1-content-block-2-tabs-content">
+          <div aria-labelledby="Validation-Results-tab" class="tab-pane fade show active" id="Validation-Results" role="tabpanel">
+           <div class="ml-1" id="section-1-content-block-2-1-body-table-toolbar">
+            <button class="btn btn-sm btn-secondary ml-1" onclick="clearTableFilters('section-1-content-block-2-1-body-table')">
+             Clear Filters
+            </button>
+           </div>
+           <table class="table-sm ge-index-page-validation-results-table" data-toggle="table" id="section-1-content-block-2-1-body-table">
+           </table>
+           <script>
+            function rowStyleLinks(row, index) {
+    return {
+      css: {
+        cursor: "pointer"
+      }
+    }
+  }
+
+  function rowAttributesLinks(row, index) {
+    return {
+      "class": "clickable-row",
+      "data-href": row._table_row_link_path
+    }
+  }
+
+  function expectationSuiteNameFilterDataCollector(value, row, formattedValue) {
+    return row._expectation_suite_name_sort;
+  }
+
+  function validationSuccessFilterDataCollector(value, row, formattedValue) {
+    return row._validation_success_text;
+  }
+
+    function getFormattedDateWithoutTime  (d) {
+
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+  function formatRuntimeDateForFilter(text, value, field, data){
+    const cellValueAsDateObj = new Date(value);
+    return text == getFormattedDateWithoutTime(cellValueAsDateObj);
+  }
+
+  function clearTableFilters(tableId) {
+    $(`#${tableId}`).bootstrapTable('clearFilterControl');
+    $(`#${tableId}`).bootstrapTable('resetSearch');
+  }
+           </script>
+           <script>
+            $('#section-1-content-block-2-1-body-table').bootstrapTable(
+    Object.assign(
+      {
+        columns: [{'field': 'validation_success', 'title': 'Status', 'sortable': 'true', 'align': 'center', 'filterControl': 'select', 'filterDataCollector': 'validationSuccessFilterDataCollector'}, {'field': 'run_time', 'title': 'Run Time', 'sortName': '_run_time_sort', 'sortable': 'true', 'filterControl': 'datepicker', 'filterCustomSearch': 'formatRuntimeDateForFilter', 'filterDatepickerOptions': {'clearBtn': 'true', 'autoclose': 'true', 'format': 'yyyy-mm-dd', 'todayHighlight': 'true'}}, {'field': 'run_name', 'title': 'Run Name', 'sortable': 'true', 'filterControl': 'input'}, {'field': 'asset_name', 'title': 'Asset Name', 'sortable': 'true', 'filterControl': 'select'}, {'field': 'batch_identifier', 'title': 'Batch ID', 'sortName': '_batch_identifier_sort', 'sortable': 'true', 'filterControl': 'input'}, {'field': 'expectation_suite_name', 'title': 'Expectation Suite', 'sortName': '_expectation_suite_name_sort', 'sortable': 'true', 'filterControl': 'select', 'filterDataCollector': 'expectationSuiteNameFilterDataCollector'}],
+        data: [{'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:11:43 BST', '_run_time_sort': 1697127103.494585, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_contact_all\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_contact_all",\n  "query": "SELECT * FROM dim_contact_all LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_contact_all', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_contact_all.html" style="word-break:break-all;" >\n                    20231012_dim_contact_all\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_contact_all', '_table_row_link_path': 'validations/20231012_dim_contact_all/__none__/20231012T161143.494585Z/gx_datasource_snowflake-dim_contact_all.html', '_validation_success_text': 'Success', 'asset_name': 'dim_contact_all'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:11:27 BST', '_run_time_sort': 1697127087.693948, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_sales_rep_office\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_sales_rep_office",\n  "query": "SELECT * FROM dim_sales_rep_office LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_sales_rep_office', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_sales_rep_office.html" style="word-break:break-all;" >\n                    20231012_dim_sales_rep_office\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_sales_rep_office', '_table_row_link_path': 'validations/20231012_dim_sales_rep_office/__none__/20231012T161127.693948Z/gx_datasource_snowflake-dim_sales_rep_office.html', '_validation_success_text': 'Success', 'asset_name': 'dim_sales_rep_office'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:11:13 BST', '_run_time_sort': 1697127073.358343, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_sales_rep\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_sales_rep",\n  "query": "SELECT * FROM dim_sales_rep LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_sales_rep', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_sales_rep.html" style="word-break:break-all;" >\n                    20231012_dim_sales_rep\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_sales_rep', '_table_row_link_path': 'validations/20231012_dim_sales_rep/__none__/20231012T161113.358343Z/gx_datasource_snowflake-dim_sales_rep.html', '_validation_success_text': 'Success', 'asset_name': 'dim_sales_rep'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:10:59 BST', '_run_time_sort': 1697127059.280046, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_sales_office\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_sales_office",\n  "query": "SELECT * FROM dim_sales_office LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_sales_office', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_sales_office.html" style="word-break:break-all;" >\n                    20231012_dim_sales_office\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_sales_office', '_table_row_link_path': 'validations/20231012_dim_sales_office/__none__/20231012T161059.280046Z/gx_datasource_snowflake-dim_sales_office.html', '_validation_success_text': 'Success', 'asset_name': 'dim_sales_office'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:10:44 BST', '_run_time_sort': 1697127044.405113, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_sales_agent_group\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_sales_agent_group",\n  "query": "SELECT * FROM dim_sales_agent_group LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_sales_agent_group', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_sales_agent_group.html" style="word-break:break-all;" >\n                    20231012_dim_sales_agent_group\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_sales_agent_group', '_table_row_link_path': 'validations/20231012_dim_sales_agent_group/__none__/20231012T161044.405113Z/gx_datasource_snowflake-dim_sales_agent_group.html', '_validation_success_text': 'Success', 'asset_name': 'dim_sales_agent_group'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:10:30 BST', '_run_time_sort': 1697127030.329067, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_sales_agent\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_sales_agent",\n  "query": "SELECT * FROM dim_sales_agent LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_sales_agent', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_sales_agent.html" style="word-break:break-all;" >\n                    20231012_dim_sales_agent\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_sales_agent', '_table_row_link_path': 'validations/20231012_dim_sales_agent/__none__/20231012T161030.329067Z/gx_datasource_snowflake-dim_sales_agent.html', '_validation_success_text': 'Success', 'asset_name': 'dim_sales_agent'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:10:16 BST', '_run_time_sort': 1697127016.066867, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_transaction_type\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_transaction_type",\n  "query": "SELECT * FROM dim_transaction_type LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_transaction_type', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_transaction_type.html" style="word-break:break-all;" >\n                    20231012_dim_transaction_type\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_transaction_type', '_table_row_link_path': 'validations/20231012_dim_transaction_type/__none__/20231012T161016.066867Z/gx_datasource_snowflake-dim_transaction_type.html', '_validation_success_text': 'Success', 'asset_name': 'dim_transaction_type'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:10:02 BST', '_run_time_sort': 1697127002.10874, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_merchant_all\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_merchant_all",\n  "query": "SELECT * FROM dim_merchant_all LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_merchant_all', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_merchant_all.html" style="word-break:break-all;" >\n                    20231012_dim_merchant_all\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_merchant_all', '_table_row_link_path': 'validations/20231012_dim_merchant_all/__none__/20231012T161002.108740Z/gx_datasource_snowflake-dim_merchant_all.html', '_validation_success_text': 'Success', 'asset_name': 'dim_merchant_all'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:09:46 BST', '_run_time_sort': 1697126986.429949, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_merchant\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_merchant",\n  "query": "SELECT * FROM dim_merchant LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_merchant', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_merchant.html" style="word-break:break-all;" >\n                    20231012_dim_merchant\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_merchant', '_table_row_link_path': 'validations/20231012_dim_merchant/__none__/20231012T160946.429949Z/gx_datasource_snowflake-dim_merchant.html', '_validation_success_text': 'Success', 'asset_name': 'dim_merchant'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:09:27 BST', '_run_time_sort': 1697126967.203062, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_card\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_card",\n  "query": "SELECT * FROM dim_card LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_card', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_card.html" style="word-break:break-all;" >\n                    20231012_dim_card\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_card', '_table_row_link_path': 'validations/20231012_dim_card/__none__/20231012T160927.203062Z/gx_datasource_snowflake-dim_card.html', '_validation_success_text': 'Success', 'asset_name': 'dim_card'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-10-12 17:09:05 BST', '_run_time_sort': 1697126945.175393, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    gx_datasource_snowflake-dim_business_unit\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_identifiers": {},\n  "data_asset_name": "dim_business_unit",\n  "query": "SELECT * FROM dim_business_unit LIMIT 50",\n  "temp_table_schema_name": null\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'gx_datasource_snowflake-dim_business_unit', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/20231012_dim_business_unit.html" style="word-break:break-all;" >\n                    20231012_dim_business_unit\n                </a>\n            ', '_expectation_suite_name_sort': '20231012_dim_business_unit', '_table_row_link_path': 'validations/20231012_dim_business_unit/__none__/20231012T160905.175393Z/gx_datasource_snowflake-dim_business_unit.html', '_validation_success_text': 'Success', 'asset_name': 'dim_business_unit'}],
+        toolbar: '#section-1-content-block-2-1-body-table-toolbar'
+      },
+      {'search': 'true', 'trimOnSearch': 'false', 'visibleSearch': 'true', 'rowStyle': 'rowStyleLinks', 'rowAttributes': 'rowAttributesLinks', 'sortName': 'run_time', 'sortOrder': 'desc', 'pagination': 'true', 'filterControl': 'true', 'iconSize': 'sm', 'toolbarAlign': 'right', 'showSearchClearButton': 'true'}
+    )
+  );
+
+  
+
+  
+    $(document).ready(function() {
+      $("#section-1-content-block-2-1-body-table").on('click-row.bs.table', function(e, row, $element) {
+          window.location = $element.data("href");
+        })
+      }
+    );
+           </script>
+          </div>
+          <div aria-labelledby="Expectation-Suites-tab" class="tab-pane fade" id="Expectation-Suites" role="tabpanel">
+           <div class="ml-1" id="section-1-content-block-2-2-body-table-toolbar">
+            <button class="btn btn-sm btn-secondary ml-1" onclick="clearTableFilters('section-1-content-block-2-2-body-table')">
+             Clear Filters
+            </button>
+           </div>
+           <table class="table-sm ge-index-page-expectation_suites-table" data-toggle="table" id="section-1-content-block-2-2-body-table">
+           </table>
+           <script>
+            function rowStyleLinks(row, index) {
+    return {
+      css: {
+        cursor: "pointer"
+      }
+    }
+  }
+
+  function rowAttributesLinks(row, index) {
+    return {
+      "class": "clickable-row",
+      "data-href": row._table_row_link_path
+    }
+  }
+
+  function expectationSuiteNameFilterDataCollector(value, row, formattedValue) {
+    return row._expectation_suite_name_sort;
+  }
+
+  function validationSuccessFilterDataCollector(value, row, formattedValue) {
+    return row._validation_success_text;
+  }
+
+    function getFormattedDateWithoutTime  (d) {
+
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+  function formatRuntimeDateForFilter(text, value, field, data){
+    const cellValueAsDateObj = new Date(value);
+    return text == getFormattedDateWithoutTime(cellValueAsDateObj);
+  }
+
+  function clearTableFilters(tableId) {
+    $(`#${tableId}`).bootstrapTable('clearFilterControl');
+    $(`#${tableId}`).bootstrapTable('resetSearch');
+  }
+           </script>
+           <script>
+            $('#section-1-content-block-2-2-body-table').bootstrapTable(
+    Object.assign(
+      {
+        columns: [{'field': 'expectation_suite_name', 'title': 'Expectation Suites', 'sortable': 'true'}],
+        data: [{'expectation_suite_name': '20231012_dim_sales_rep', '_table_row_link_path': 'expectations/20231012_dim_sales_rep.html'}, {'expectation_suite_name': '20231012_dim_transaction_type', '_table_row_link_path': 'expectations/20231012_dim_transaction_type.html'}, {'expectation_suite_name': '20231012_dim_business_unit', '_table_row_link_path': 'expectations/20231012_dim_business_unit.html'}, {'expectation_suite_name': '20231012_dim_card', '_table_row_link_path': 'expectations/20231012_dim_card.html'}, {'expectation_suite_name': '20231012_dim_merchant_all', '_table_row_link_path': 'expectations/20231012_dim_merchant_all.html'}, {'expectation_suite_name': '20231012_dim_sales_agent', '_table_row_link_path': 'expectations/20231012_dim_sales_agent.html'}, {'expectation_suite_name': '20231012_dim_sales_agent_group', '_table_row_link_path': 'expectations/20231012_dim_sales_agent_group.html'}, {'expectation_suite_name': '20231012_dim_merchant', '_table_row_link_path': 'expectations/20231012_dim_merchant.html'}, {'expectation_suite_name': '20231012_dim_sales_rep_office', '_table_row_link_path': 'expectations/20231012_dim_sales_rep_office.html'}, {'expectation_suite_name': '20231012_dim_contact_all', '_table_row_link_path': 'expectations/20231012_dim_contact_all.html'}, {'expectation_suite_name': '20231012_dim_sales_office', '_table_row_link_path': 'expectations/20231012_dim_sales_office.html'}],
+        toolbar: '#section-1-content-block-2-2-body-table-toolbar'
+      },
+      {'search': 'true', 'trimOnSearch': 'false', 'visibleSearch': 'true', 'rowStyle': 'rowStyleLinks', 'rowAttributes': 'rowAttributesLinks', 'sortName': 'expectation_suite_name', 'sortOrder': 'asc', 'pagination': 'true', 'iconSize': 'sm', 'toolbarAlign': 'right'}
+    )
+  );
+
+  
+
+  
+                                        $(document).ready(function() {
+                                        $("#section-1-content-block-2-2-body-table").on('click-row.bs.table', function(e, row, $element) {
+                                            window.location = $element.data("href");
+                                        })
+                                    }
+                                    );
+           </script>
+          </div>
+          <!-- end of expectation suites tab -->
+          <!-- ############################################################################### -->
+          <!-- PF - todo here -->
+          <!-- profiling results tab -->
+          <div aria-labelledby="Profiling-Results-tab" class="tab-pane fade" id="Profiling-Results" role="tabpanel">
+           <!-- 'clear filter' toolbar: profiling-results tab -->
+           <div class="ml-1" id="section-1-content-block-2-3-body-table-toolbar">
+            <button class="btn btn-sm btn-secondary ml-1" onclick="clearTableFilters('section-1-content-block-2-3-body-table')">
+             Clear
+                                        Filters
+            </button>
+           </div>
+           <!-- end of 'clear filter' toolbar: profiling-results tab -->
+           <!-- table for profiling-results tab -->
+           <table class="table-sm ge-index-page-profiling_results-table" data-toggle="table" id="section-1-content-block-2-3-body-table">
+           </table>
+           <!-- JS for profiling-results tab -->
+           <script>
+            function rowStyleLinks(row, index) {
+                                        return {
+                                            css: {
+                                                cursor: "pointer"
+                                            }
+                                        }
+                                    }
+
+                                    function rowAttributesLinks(row, index) {
+                                        return {
+                                            "class": "clickable-row",
+                                            "data-href": row._table_row_link_path
+                                        }
+                                    }
+
+                                    function expectationSuiteNameFilterDataCollector(value, row, formattedValue) {
+                                        return row._expectation_suite_name_sort;
+                                    }
+
+                                    function validationSuccessFilterDataCollector(value, row, formattedValue) {
+                                        return row._validation_success_text;
+                                    }
+
+                                    function getFormattedDateWithoutTime(d) {
+
+                                        month = '' + (d.getMonth() + 1),
+                                            day = '' + d.getDate(),
+                                            year = d.getFullYear();
+
+                                        if (month.length < 2)
+                                            month = '0' + month;
+                                        if (day.length < 2)
+                                            day = '0' + day;
+
+                                        return [year, month, day].join('-');
+                                    }
+
+                                    function formatRuntimeDateForFilter(text, value, field, data) {
+                                        const cellValueAsDateObj = new Date(value);
+                                        return text == getFormattedDateWithoutTime(cellValueAsDateObj);
+                                    }
+
+                                    function clearTableFilters(tableId) {
+                                        $(`#${tableId}`).bootstrapTable('clearFilterControl');
+                                        $(`#${tableId}`).bootstrapTable('resetSearch');
+                                    }
+           </script>
+           <!-- JQuery for profiling-results tab -->
+           <script>
+            $('#section-1-content-block-2-3-body-table').bootstrapTable(
+                                        Object.assign(
+                                            {
+                                                columns: [{ 'field': 'profiling_result_name', 'title': 'Profiling Results', 'sortable': 'true' }],
+                                                data: [
+                                                    {%- for table in input_tables %}
+                                                    { 'profiling_result_name': '{{ current_data_str }}_{{ table }}', '_table_row_link_path': 'profiling_results/{{ current_data_str }}_{{ table }}.html' },
+                                                    {%- endfor %}
+                                                ],
+                                            toolbar: '#section-1-content-block-2-3-body-table-toolbar'
+                                            },
+                                            { 'search': 'true', 'trimOnSearch': 'false', 'visibleSearch': 'true', 'rowStyle': 'rowStyleLinks', 'rowAttributes': 'rowAttributesLinks', 'sortName': 'profiling_result_name', 'sortOrder': 'asc', 'pagination': 'true', 'iconSize': 'sm', 'toolbarAlign': 'right' }
+                                        )
+                                    );
+
+                                    $(document).ready(function() {
+                                        $("#section-1-content-block-2-3-body-table").on('click-row.bs.table', function(e, row, $element) {
+                                            window.location = $element.data("href");
+                                        })
+                                    }
+                                    );
+           </script>
+          </div>
+          <!-- end of profiling results tab -->
+          <!-- end of PF - todo here -->
+          <!-- ############################################################################### -->
+         </div>
+        </div>
+        <!-- end of div: tab navigation (containing tables) -->
+       </div>
+       <!-- end of tabs container -->
+      </div>
+      <!-- end of row -->
+     </div>
+     <!-- end of section 1 (container) -->
+    </div>
+    <!-- end of column 2 - important - main table content -->
+   </div>
+   <!-- end of row (column 1) -->
+  </div>
+  <!-- end of row -->
+  <!-- main container -->
+  <footer>
+   <p>
+    Stay current on everything GX with our newsletter"
+    <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&amp;utm_medium=product&amp;utm_campaign=newsletter&amp;utm_content=form">
+     Subscribe
+    </a>
+   </p>
+  </footer>
+  <footer class="border border-info alert alert-info fixed-bottom alert-dismissible fade show m-0 rounded-0 invisible" id="ge-cta-footer" role="alert">
+   <h5 class="alert-heading text-center">
+    <span class="cooltip">
+     <i class="m-1 fas fa-question-circle">
+     </i>
+     <span class="top">
+      To disable this footer, set the show_how_to_buttons flag in your project's data_docs_sites config to false.
+     </span>
+    </span>
+    To continue exploring Great Expectations check out one of these tutorials...
+   </h5>
+   <div class="d-flex justify-content-center flex-sm-row flex-column">
+    <a class="btn btn-primary m-2" href="https://docs.greatexpectations.io/docs/guides/expectations/how_to_create_and_edit_expectations_with_instant_feedback_from_a_sample_batch_of_data" rel="noopener noreferrer" target="_blank">
+     How to Create Expectations
+    </a>
+    <a class="btn btn-primary m-2" href="https://docs.greatexpectations.io/docs/guides/validation/checkpoints/how_to_create_a_new_checkpoint" rel="noopener noreferrer" target="_blank">
+     How to Validate Data
+    </a>
+    <a class="btn btn-primary m-2" href="https://docs.greatexpectations.io/docs/guides/setup/configuring_data_docs/how_to_host_and_share_data_docs_on_a_filesystem" rel="noopener noreferrer" target="_blank">
+     How to Set Up a Team Site
+    </a>
+   </div>
+   <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+    <span aria-hidden="true">
+     ×
+    </span>
+   </button>
+  </footer>
+  <script>
+   if (sessionStorage.getItem("showCta") !== "false") {
+    $('#ge-cta-footer').removeClass("invisible")
+  }
+  $('#ge-cta-footer').on('closed.bs.alert', function () {
+    sessionStorage.setItem("showCta", false)
+  })
+  </script>
+ </body>
+</html>

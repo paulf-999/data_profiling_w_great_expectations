@@ -1,0 +1,7 @@
+---
+input_tables:
+    - table_a
+    - table_b
+other_params:
+    row_count_limit: 5
+    gx_data_src_name: gx_datasource_snowflake

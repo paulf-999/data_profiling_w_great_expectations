@@ -1,0 +1,10 @@
+beautifulsoup4==4.12.2
+black==23.9.1
+great_expectations==0.17.19
+j2cli==0.3.10
+pytest==7.2.1
+python-dotenv==1.0.0
+snowflake-connector-python==3.0.4
+snowflake-sqlalchemy==1.5.0
+sqlalchemy==1.4.48
+colorlog

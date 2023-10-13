@@ -1,0 +1,13 @@
+<li class="nav-item">
+    <a class="nav-link" id="Expectation-Suites-tab" data-toggle="tab" href="#Expectation-Suites"
+        role="tab" aria-selected="false" aria-controls="Expectation-Suites">
+        Expectation Suites
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" id="Expectation-Suites-tab" href="profiling_results.html"
+        aria-selected="false" aria-controls="Expectation-Suites">
+        Profiling Results
+    </a>
+</li>

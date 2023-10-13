@@ -1,0 +1,135 @@
+                                    $(document).ready(function() {
+                                        $("#section-1-content-block-2-2-body-table").on('click-row.bs.table', function(e, row, $element) {
+                                            window.location = $element.data("href");
+                                        })
+                                    }
+                                    );
+
+                                </script>
+                            </div>
+                            <!-- end of expectation suites tab -->
+
+                            <!-- ############################################################################### -->
+                            <!-- PF - todo here -->
+                            <!-- profiling results tab -->
+                            <div class="tab-pane fade" id="Profiling-Results" role="tabpanel"
+                                aria-labelledby="Profiling-Results-tab">
+
+
+                                <!-- 'clear filter' toolbar: profiling-results tab -->
+                                <div id="section-1-content-block-2-3-body-table-toolbar" class="ml-1">
+
+                                    <button class="btn btn-sm btn-secondary ml-1"
+                                        onclick="clearTableFilters('section-1-content-block-2-3-body-table')">Clear
+                                        Filters</button>
+                                </div>
+                                <!-- end of 'clear filter' toolbar: profiling-results tab -->
+
+                                <!-- table for profiling-results tab -->
+                                <table id="section-1-content-block-2-3-body-table"
+                                    class="table-sm ge-index-page-profiling_results-table" data-toggle="table">
+                                </table>
+
+                                <!-- JS for profiling-results tab -->
+                                <script>
+                                    function rowStyleLinks(row, index) {
+                                        return {
+                                            css: {
+                                                cursor: "pointer"
+                                            }
+                                        }
+                                    }
+
+                                    function rowAttributesLinks(row, index) {
+                                        return {
+                                            "class": "clickable-row",
+                                            "data-href": row._table_row_link_path
+                                        }
+                                    }
+
+                                    function expectationSuiteNameFilterDataCollector(value, row, formattedValue) {
+                                        return row._expectation_suite_name_sort;
+                                    }
+
+                                    function validationSuccessFilterDataCollector(value, row, formattedValue) {
+                                        return row._validation_success_text;
+                                    }
+
+                                    function getFormattedDateWithoutTime(d) {
+
+                                        month = '' + (d.getMonth() + 1),
+                                            day = '' + d.getDate(),
+                                            year = d.getFullYear();
+
+                                        if (month.length < 2)
+                                            month = '0' + month;
+                                        if (day.length < 2)
+                                            day = '0' + day;
+
+                                        return [year, month, day].join('-');
+                                    }
+
+                                    function formatRuntimeDateForFilter(text, value, field, data) {
+                                        const cellValueAsDateObj = new Date(value);
+                                        return text == getFormattedDateWithoutTime(cellValueAsDateObj);
+                                    }
+
+                                    function clearTableFilters(tableId) {
+                                        $(`#${tableId}`).bootstrapTable('clearFilterControl');
+                                        $(`#${tableId}`).bootstrapTable('resetSearch');
+                                    }
+                                </script>
+
+                                <!-- JQuery for profiling-results tab -->
+                                <script>
+                                    $('#section-1-content-block-2-3-body-table').bootstrapTable(
+                                        Object.assign(
+                                            {
+                                                columns: [{ 'field': 'profiling_result_name', 'title': 'Profiling Results', 'sortable': 'true' }],
+                                                data: [
+                                                    {%- for table in input_tables %}
+                                                    { 'profiling_result_name': '{{ current_data_str }}_{{ table }}', '_table_row_link_path': 'profiling_results/{{ current_data_str }}_{{ table }}.html' },
+                                                    {%- endfor %}
+                                                ],
+                                            toolbar: '#section-1-content-block-2-3-body-table-toolbar'
+                                            },
+                                            { 'search': 'true', 'trimOnSearch': 'false', 'visibleSearch': 'true', 'rowStyle': 'rowStyleLinks', 'rowAttributes': 'rowAttributesLinks', 'sortName': 'profiling_result_name', 'sortOrder': 'asc', 'pagination': 'true', 'iconSize': 'sm', 'toolbarAlign': 'right' }
+                                        )
+                                    );
+
+                                    $(document).ready(function() {
+                                        $("#section-1-content-block-2-3-body-table").on('click-row.bs.table', function(e, row, $element) {
+                                            window.location = $element.data("href");
+                                        })
+                                    }
+                                    );
+
+                                </script>
+                            </div>
+                            <!-- end of profiling results tab -->
+                            <!-- end of PF - todo here -->
+                            <!-- ############################################################################### -->
+                        </div>
+                        </div>
+                        <!-- end of div: tab navigation (containing tables) -->
+
+                    </div>
+                    <!-- end of tabs container -->
+
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of section 1 (container) -->
+
+        </div>
+        <!-- end of column 2 - important - main table content -->
+
+    </div>
+    <!-- end of row (column 1) -->
+
+</div>
+<!-- end of row -->
+</div>
+<!-- main container -->
+<footer>
+    <p>Stay current on everything GX with our newsletter"
